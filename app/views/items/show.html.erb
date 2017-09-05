@@ -1,0 +1,18 @@
+<div><h1><%= @item.name %></h1></div>
+
+<div><h5><%= @item.category %></h5></div>
+<div><h4><%= @item.description %></h4></div>
+<div><h4><%= number_to_currency(@item.price) %></h4></div>
+
+<%= form_tag '/carted_products', method: :post do %>
+    <%= text_field_tag :quantity %>
+    <%= hidden_field_tag :item_id, @item.id %>
+    <%= submit_tag "Add to Cart", :class => "btn btn-default" %>
+<% end %>
+
+
+
+<% if admin_signed_in? %>
+<%=  link_to 'Update', "/items/#{@item.id}/edit "%>
+<%=  link_to 'Destroy', "/items/#{@item.id}", method: :delete %>
+<% end %>

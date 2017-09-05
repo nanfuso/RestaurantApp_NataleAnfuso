@@ -1,0 +1,21 @@
+<h1>Check Out Page</h1>
+
+<div>
+    <% @carted_products.each do |carted_product| %>
+    <h3><%= carted_product.item.name %> - <%= number_to_currency(carted_product.item.price) %> X <%= carted_product.quantity %> <%= link_to "remove", "/carted_products/#{carted_product.id}", method: :delete %></h3>
+    <% end %>
+</div>
+
+ <h3>Subtotal: <%= number_to_currency(potential_subtotal) %></h3>
+
+
+
+<%= form_tag '/orders', method: :post do %>
+    <h3>Add Tip:</h3> 
+    <div>
+    <div><%= radio_button_tag(:tip, "#{potential_subtotal * 0.10}") %> 10% - <%= number_to_currency(potential_subtotal * 0.10) %></div>
+    <div><%= radio_button_tag(:tip, "#{potential_subtotal * 0.15}") %> 15% - <%= number_to_currency(potential_subtotal * 0.15) %></div>
+    <div><%= radio_button_tag(:tip, "#{potential_subtotal * 0.20}") %> 20% - <%= number_to_currency(potential_subtotal * 0.20) %></div>
+    </div>
+    <div><%= submit_tag "Buy Now!", :class => "btn btn-default" %></div>
+<% end %>

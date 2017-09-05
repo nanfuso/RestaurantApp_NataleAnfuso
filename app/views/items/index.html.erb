@@ -1,0 +1,33 @@
+<h1>Menu Items</h1>
+
+<h2>Appetizers</h2>
+    <% @items.where("category = ?", 0).each do |item| %>
+     <div><h3><a href="/items/<%= item.id %>"><%= item.name %></a></h3></div>
+     <div><h4><%= item.description %></h4></div>
+     <div><h4><%= number_to_currency(item.price) %></h4></div>
+     <br>
+<% end %>   
+
+<h2>Mains</h2>
+    <% @items.where("category = ?", 1).each do |item| %>
+     <div><h3><a href="/items/<%= item.id %>"><%= item.name %></a></h3></div>
+     <div><h4><%= item.description %></h4></div>
+     <div><h4><%= number_to_currency(item.price) %></h4></div>
+     <br>
+<% end %>
+
+<h2>Sweets</h2>
+    <% @items.where("category = ?", 2).each do |item| %>
+     <div><h3><a href="/items/<%= item.id %>"><%= item.name %></a></h3></div>
+     <div><h4><%= item.description %></h4></div>
+     <div><h4><%= number_to_currency(item.price) %></h4></div>
+     <br>
+<% end %>   
+
+<h2>Sides</h2>
+    <% @items.where("category = ?", 3).each do |item| %>
+     <div><h3><a href="/items/<%= item.id %>"><%= item.name %></a></h3></div>
+     <div><h4><%= item.description %></h4></div>
+     <div><h4><%= number_to_currency(item.price) %></h4></div>
+     <br>
+<% end %>   

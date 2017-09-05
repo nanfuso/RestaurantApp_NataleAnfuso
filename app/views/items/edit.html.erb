@@ -1,0 +1,27 @@
+<%= form_tag "/items/#{@item.id}", method: :patch do %>
+    <div class="form_group">
+    <h4>Name:</h4> 
+    <%= text_field_tag :name, @item.name%>
+    </div>
+
+    <div class="form_group">
+    <h4>Description:</h4> 
+    <%= text_area_tag :description, @item.description %>
+    </div>
+
+    <div>
+    <h4>Price:</h4>
+    <%= text_field_tag :price, @item.price %></div>
+    
+    <div>
+    <h4>Category:</h4>
+    <div><%= radio_button_tag(:category, "appetizer") %> Appetizer</div>
+    <div><%= radio_button_tag(:category, "main course") %> Main Course</div>
+    <div><%= radio_button_tag(:category, "dessert") %> Dessert</div>
+    <div><%= radio_button_tag(:category, "side") %> Side</div>
+    </div>
+<br>
+    <div><%= submit_tag "Updated Menu Item", :class => "btn btn-default" %>
+        <%= link_to "Cancel", '/', :class => "btn btn-default" %>
+    </div>
+<% end %>
