@@ -1,10 +1,4 @@
-1. Clone the respository by copying the HTTPS URL and running the following command in the terminal
-
-            git clone https://github.com/natail/weather_app.git
-
-2. Once the repository has been cloned, change directories into it by running the following command into the terminal
-
-            cd weather_app
+2. Change directories into the app
 
 3. Start up a rails server by running the following command into the terminal
 
